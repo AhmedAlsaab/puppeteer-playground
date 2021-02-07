@@ -56,22 +56,22 @@ async function getProductData(page) {
   }
 }
 
-const createBrowser = async () => {
+async function createBrowser() {
   const browser = await puppeteer.launch();
   processIDs.push(browser.process().pid);
   return browser;
-};
+}
 
-const closeBrowser = async (browser) => {
+async function closeBrowser(browser) {
   await browser.close();
   for (let i = 0; i < processIDs.length; i++) {
     execute(`echo ${process.env.PASSWD} | sudo -S kill -9 ${processIDs[i]}`);
   }
-};
+}
 
 // TODO: Change while loop to Cron Job
 
-const runStockChecker = async () => {
+async function runStockChecker() {
   const browser = await createBrowser();
 
   const page = await browser.newPage();
@@ -94,7 +94,7 @@ const runStockChecker = async () => {
   }
 
   // await closeBrowser(browser);
-};
+}
 
 async function wait(time) {
   return new Promise(function (resolve) {
