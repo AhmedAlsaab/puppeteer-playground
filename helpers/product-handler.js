@@ -1,5 +1,5 @@
 const notifier = require('./notify-discord');
-const secret = require('../../secret');
+const secret = require('../secret');
 const customLogger = require('./logger');
 const moment = require('moment');
 

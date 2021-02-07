@@ -1,4 +1,4 @@
-const secret = require('../../secret');
+const secret = require('../secret');
 const fetch = require('node-fetch');
 const moment = require('moment');
 
